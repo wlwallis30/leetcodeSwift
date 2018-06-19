@@ -1,0 +1,29 @@
+name: LeetcodeSwift 
+attributes:
+  ORGANIZATIONNAME: wlwallis30
+configs:
+  Debug: debug
+  Release: release
+targets:
+  LeetcodeSwift:
+    type: framework
+    platform: macOS
+    settings:
+      BUILD_SETTING: Info/LeetcodeSwift.plist
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - LeetcodeSwiftTests
+    sources:
+      - Sources
+      - Resources
+    postbuildScripts:
+      - script: ${PODS_ROOT}/SwiftLint/swiftlint
+  LeetcodeSwiftTests:
+    type: bundle.unit-test
+    platform: macOS
+    settings:
+      BUILD_SETTING: Info/LeetcodeSwiftTests.plist
+    dependencies:
+      - target: LeetcodeSwift
+    sources: Tests
