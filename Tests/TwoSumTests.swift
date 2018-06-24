@@ -114,4 +114,50 @@ class TwoSumTests: XCTestCase {
     self.printQuestionInfo("two sum @167")
     XCTAssertEqual(expected, res)
     }
+
+    func testTwoSum_170() {
+        let obj = TwoSum()
+        obj.add(num: 1)
+        obj.add(num: 3)
+        obj.add(num: 5)
+        obj.add(num: 4)
+        obj.add(num: 7)
+        var res = obj.find(target: 9)
+        XCTAssertTrue(res)
+        res = obj.find(target: 10)
+        XCTAssertTrue(res)
+        res = obj.find(target: 11)
+        XCTAssertTrue(res)
+        res = obj.find(target: 12)
+        XCTAssertTrue(res)
+        res = obj.find(target: 13)
+        XCTAssertTrue(!res)
+    }
+
+    func testTwuSum_653() {
+        let treeNode5 = TreeNode(5)
+        let treeNode3 = TreeNode(3)
+        let treeNode6 = TreeNode(6)
+        let treeNode2 = TreeNode(2)
+        let treeNode4 = TreeNode(4)
+        let treeNode7 = TreeNode(7)
+
+        treeNode5.left = treeNode3
+        treeNode5.right = treeNode6
+        treeNode3.left = treeNode2
+        treeNode3.right = treeNode4
+        treeNode6.left = treeNode7
+
+        XCTAssertTrue(twoSum.twoSumBST_653(treeNode5, 9))
+        XCTAssertTrue(twoSum.twoSumBST_653(treeNode5, 10))
+        XCTAssertTrue(twoSum.twoSumBST_653(treeNode5, 6))
+        XCTAssertTrue(twoSum.twoSumBST_653(treeNode5, 11))
+        XCTAssertTrue(!twoSum.twoSumBST_653(treeNode5, 19))
+    }
+
+    func testThreeSumSmaller_259() {
+        let nums = [-2, 0, 1, 3]
+        let res = twoSum.threeSumSmaller_259(nums, 2)
+        XCTAssertEqual(res, 2)
+    }
 }

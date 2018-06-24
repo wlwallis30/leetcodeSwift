@@ -6,11 +6,6 @@
 import Foundation
 
 protocol TwoSumFunc {
-    func twoSum_1(nums: [Int], target: Int) -> [Int]
-    func threeSum_15(numbers: [Int]) -> [[Int]]
-    func threeSum_16(numbers: [Int], target: Int) -> Int
-    func fourSum_18(numbers: [Int], target: Int) -> [[Int]]
-    func twoSumSorted_167(nums: [Int], target: Int) -> [Int]
 }
 
 extension Array: Hashable where Element == Int {
@@ -32,6 +27,7 @@ extension TwoSumFunc {
         return [Int]()
     }
 
+    // !medium
     // you can use inout to mutate/sort value type of [Int], to pass with leetcoce.com use copy
     func threeSum_15(numbers: [Int]) -> [[Int]] {
         var res = [[Int]]()
@@ -76,6 +72,7 @@ extension TwoSumFunc {
         return res
     }
 
+    // !medium
     func threeSum_16(numbers: [Int], target: Int) -> Int {
         if numbers.count < 3 {
             return Int.max
@@ -102,6 +99,7 @@ extension TwoSumFunc {
         return closest
     }
 
+    // !medium
     func fourSum_18(numbers: [Int], target: Int) -> [[Int]] {
         var res = Set<[Int]>()
         if numbers.count < 4 { return [[Int]]() }
@@ -146,8 +144,46 @@ extension TwoSumFunc {
         }
         return [Int]()
     }
+
+    func twoSumBST_653 (_ root: TreeNode?, _ target: Int) -> Bool {
+        guard root != nil else {
+            return false
+        }
+        var numSet = Set<Int>()
+        return helper(&numSet, root, target)
+    }
+
+    func helper(_ numSet: inout Set<Int>, _ node: TreeNode?, _ target: Int) -> Bool {
+        guard let node = node else {
+            return false
+        }
+        if numSet.contains(target - node.val) { return true }
+        numSet.insert(node.val)
+        return helper(&numSet, node.left, target) || helper(&numSet, node.right, target)
+    }
+
+    // !medium
+    func threeSumSmaller_259(_ nums: [Int], _ target: Int) -> Int {
+        if nums.count < 3 { return 0 }
+        let nums = nums.sorted { $0 < $1 }
+        var res = 0
+        for idx in 0..<nums.count-2 {
+            var left = idx + 1, right = nums.count - 1
+            while left < right {
+                if nums[idx] + nums[left] + nums[right] < target {
+                    res += right - left
+                    left += 1
+                } else {
+                    right -= 1
+                }
+            }
+        }
+        return res
+    }
 }
 
+// @170 in leetcode for two sum design
+// leetcode does not have swift interface for 170, still putting here
 final class TwoSum: TwoSumFunc {
     var twoSumMap = [Int: Int]()
 
@@ -168,5 +204,16 @@ final class TwoSum: TwoSumFunc {
             }
         }
         return false
+    }
+}
+
+public class TreeNode {
+    public var val: Int
+    public var left: TreeNode?
+    public var right: TreeNode?
+    public init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
     }
 }
