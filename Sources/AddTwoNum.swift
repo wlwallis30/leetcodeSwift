@@ -54,7 +54,7 @@ extension AddTwoNumFunc {
         }
 
         var idx = startIdx + 1
-        while tmpRes[idx] == 0 { idx -= 1 }
+        while idx >= 0 && tmpRes[idx] == 0 { idx -= 1 }
         if idx < 0 { return "0" }
         var res = ""
         while idx >= 0 {
