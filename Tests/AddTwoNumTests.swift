@@ -16,10 +16,15 @@ class AddTwoNumTests: LCBaseTest {
     }
 
     func testMultiplyNums_43() {
-        let num1 = "2"
-        let num2 = "3"
-        let res = addTwo.multiplyTwoStrs_43(num1, num2)
+        var num1 = "2"
+        var num2 = "3"
+        var res = addTwo.multiplyTwoStrs_43(num1, num2)
         XCTAssertEqual(res, "6")
+        num1 = "0"
+        num2 = "0"
+
+        res = addTwo.multiplyTwoStrs_43(num1, num2)
+        XCTAssertEqual(res,"0")
     }
 
     func testPlusOne_66() {
