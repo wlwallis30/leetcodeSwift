@@ -64,6 +64,23 @@ extension AddTwoNumFunc {
         return res
     }
 
+    func plusOne_66(_ digits: [Int]) -> [Int] {
+        var digits = digits
+        for idx in (0...(digits.count-1)).reversed() {
+            if digits[idx] == 9 {
+                digits[idx] = 0
+            } else {
+                digits[idx] += 1
+                return digits
+            }
+        }
+
+        if digits[0] == 0 {
+            digits.insert(1, at: 0)
+        }
+        return digits
+    }
+
     func addBinary_67(_ str1: String, _ str2: String) -> String {
         var res = ""
         let str1 = NSString(string: str1), str2 = NSString(string: str2)
@@ -79,6 +96,40 @@ extension AddTwoNumFunc {
             carry = sum / 2
         }
         return carry == 1 ? "1" + res: res
+    }
+
+    func plusOne_369(_ head: ListNode?) -> ListNode? {
+        var cur = head
+        var head = head
+        var notNine: ListNode? = nil
+        while cur != nil {
+            if cur!.val != 9 {
+                notNine = cur
+            }
+            cur = cur!.next
+        }
+
+        if notNine == nil {
+            notNine = ListNode(0)
+            notNine!.next = head
+            head = notNine
+        }
+        notNine!.val += 1
+        // dont forget to handle the rest of nines
+        cur = notNine!.next
+        while cur != nil {
+            cur!.val = 0
+            cur = cur!.next
+        }
+
+        return head
+    }
+
+    func sumOfTwo_371(_ num1: Int, _ num2: Int) -> Int {
+        if num2 == 0 { return num1 }
+        let sum = num1 ^ num2
+        let carry = (num1 & num2) << 1
+        return sumOfTwo_371(sum, carry)
     }
 }
 
