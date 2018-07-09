@@ -32,4 +32,8 @@ class SubStrNoRepeatTests: LCBaseTest {
         expected = "xmv"
         XCTAssertEqual(res, expected)
     }
+
+    func testLongestConsecSeq() {
+        XCTAssertEqual(1, 1)
+    }
 }

@@ -35,6 +35,7 @@ extension SubStrNoRepeatFunc {
         return res
     }
 
+    // company: FULSnap, hard
     func minWindowSubStr_76(_ source: String, _ target: String) -> String {
         var res = ""
         if source.isEmpty || target.count > source.count { return res }
@@ -57,7 +58,7 @@ extension SubStrNoRepeatFunc {
                 if sourceCharMap[curChar]! <= targetCharMap [curChar]! { goalCount += 1 }
             }
 
-            while(goalCount == target.count) {
+            while goalCount == target.count {
                 curChar = source[left]
                 if right-left+1 < minResLen {
                     minResLen = right - left + 1
@@ -99,7 +100,7 @@ extension SubStrNoRepeatFunc {
                 if sourceCharMap[curChar]! <= targetCharMap [curChar]! { goalCount += 1 }
             }
 
-            while(goalCount == target.length) {
+            while goalCount == target.length {
                 curChar = source.character(at: left)
                 if right-left+1 < minResLen {
                     minResLen = right - left + 1
@@ -114,5 +115,37 @@ extension SubStrNoRepeatFunc {
             }
         }
         return  res
+    }
+
+    func longestConsecSequence_128(_ nums: [Int]) -> Int {
+        var res = Int.min
+        var charPosMap = [Int: Int]()
+        for num in nums {
+            charPosMap[num] = 1
+        }
+
+        for num in nums {
+            var curNum = num
+            var curCount = 1
+            charPosMap.removeValue(forKey: num)
+
+            var bigger =  num + 1
+            while charPosMap[bigger] != nil {
+                charPosMap.removeValue(forKey: bigger)
+                curCount += 1
+                bigger += 1
+            }
+
+            var smaller = num - 1
+            while charPosMap[smaller] != nil {
+                charPosMap.removeValue(forKey: smaller)
+                curCount += 1
+                smaller -= 1
+            }
+
+            res = max(res, curCount)
+       }
+
+        return res
     }
 }
