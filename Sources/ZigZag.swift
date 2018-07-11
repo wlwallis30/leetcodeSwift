@@ -12,6 +12,7 @@ class ZigZag: ZigZagFunc {
 }
 
 extension ZigZagFunc {
+    // medium
     func zigZagConvert_6(_ str: String, _ nRows: Int) -> String {
         if nRows < 2 { return str }
         let str = NSString(string: str)
@@ -28,5 +29,10 @@ extension ZigZagFunc {
         }
 
         return res
+    }
+
+    func zigzagLevelOrder_103(_ root: TreeNode?) -> [[Int]] {
+        let levelOrder = LevelOrder()
+        return levelOrder.zigzagLevelOrder_103(root)
     }
 }

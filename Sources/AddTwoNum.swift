@@ -9,6 +9,7 @@ protocol AddTwoNumFunc {
 }
 
 extension AddTwoNumFunc {
+    // MAAirAdobeBlom, medium
     public func addTwoNums_2(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
         let res = ListNode(-1)
         var cur = res
@@ -30,6 +31,7 @@ extension AddTwoNumFunc {
         return res.next
     }
 
+    // FTw, medium
     func multiplyTwoStrs_43 (_ num1: String, _ num2: String) -> String {
         let str1 = NSString(string: num1), str2 = NSString(string: num2)
         let zero = "0" as NSString
@@ -64,6 +66,7 @@ extension AddTwoNumFunc {
         return res
     }
 
+    // G, easy
     func plusOne_66(_ digits: [Int]) -> [Int] {
         var digits = digits
         for idx in (0...(digits.count-1)).reversed() {
@@ -81,6 +84,7 @@ extension AddTwoNumFunc {
         return digits
     }
 
+    // F, easy
     func addBinary_67(_ str1: String, _ str2: String) -> String {
         var res = ""
         let str1 = NSString(string: str1), str2 = NSString(string: str2)
@@ -98,6 +102,7 @@ extension AddTwoNumFunc {
         return carry == 1 ? "1" + res: res
     }
 
+    // G, medium
     func plusOne_369(_ head: ListNode?) -> ListNode? {
         var cur = head
         var head = head
@@ -125,6 +130,7 @@ extension AddTwoNumFunc {
         return head
     }
 
+    // hulu, easy
     func sumOfTwo_371(_ num1: Int, _ num2: Int) -> Int {
         if num2 == 0 { return num1 }
         let sum = num1 ^ num2

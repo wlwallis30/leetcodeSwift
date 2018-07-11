@@ -15,6 +15,7 @@ extension Array: Hashable where Element == Int {
 }
 
 extension TwoSumFunc {
+    // many company, easy
     func twoSum_1(nums: [Int], target: Int) -> [Int] {
         var map: [Int: Int] = [Int: Int]()
         for idx in 0..<nums.count {
@@ -27,7 +28,7 @@ extension TwoSumFunc {
         return [Int]()
     }
 
-    // !medium
+    // FAMBlomAdobe, medium
     // you can use inout to mutate/sort value type of [Int], to pass with leetcoce.com use copy
     func threeSum_15(numbers: [Int]) -> [[Int]] {
         var res = [[Int]]()
@@ -72,7 +73,7 @@ extension TwoSumFunc {
         return res
     }
 
-    // !medium
+    // Blom, !medium
     func threeSum_16(numbers: [Int], target: Int) -> Int {
         if numbers.count < 3 {
             return Int.max
@@ -132,6 +133,7 @@ extension TwoSumFunc {
         return result
     }
 
+    // A, easy
     func twoSumSorted_167(nums: [Int], target: Int) -> [Int] {
         var left = 0, right = nums.count - 1
         while left < right {
@@ -145,6 +147,7 @@ extension TwoSumFunc {
         return [Int]()
     }
 
+    // FSamsung, easy
     func twoSumBST_653 (_ root: TreeNode?, _ target: Int) -> Bool {
         guard root != nil else {
             return false
@@ -162,7 +165,7 @@ extension TwoSumFunc {
         return helper(&numSet, node.left, target) || helper(&numSet, node.right, target)
     }
 
-    // !medium
+    // G, medium
     func threeSumSmaller_259(_ nums: [Int], _ target: Int) -> Int {
         if nums.count < 3 { return 0 }
         let nums = nums.sorted { $0 < $1 }
@@ -182,7 +185,7 @@ extension TwoSumFunc {
     }
 }
 
-// @170 in leetcode for two sum design
+// @170 in leetcode for two sum design, L, easy
 // leetcode does not have swift interface for 170, still putting here
 final class TwoSum: TwoSumFunc {
     var twoSumMap = [Int: Int]()

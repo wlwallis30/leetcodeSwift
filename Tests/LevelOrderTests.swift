@@ -17,4 +17,8 @@ class LevelOrderTests: LCBaseTest {
     func testLevelOrderRecursive_102() {
         XCTAssertEqual(1, 1)
     }
+
+    func testZigZagLevelOrder_103() {
+        XCTAssertEqual(1, 1)
+    }
 }

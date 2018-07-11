@@ -12,6 +12,7 @@ class LevelOrder: LevelOrderFunc {
 }
 
 extension LevelOrderFunc {
+    // FMALBlomApp, medium
     func levelOrderQueue_102(_ root: TreeNode?) -> [[Int]] {
         var res = [[Int]]()
         if let root = root {
@@ -49,5 +50,36 @@ extension LevelOrderFunc {
             if let right = curNode.right { self.leveOrderDFS(right, res: &res, level: level + 1) }
         }
         return
+    }
+
+    // MLBlom, medium
+    func zigzagLevelOrder_103(_ root: TreeNode?) -> [[Int]] {
+        var res = [[Int]]()
+        if let root = root {
+            var leftToRightStack = Stack<TreeNode>(), rightToLeftStack = Stack<TreeNode>()
+            var curLevelArray = [Int]()
+            leftToRightStack.push(root)
+            var curNode: TreeNode? = nil
+            while !leftToRightStack.isEmpty || !rightToLeftStack.isEmpty {
+                while !leftToRightStack.isEmpty {
+                    curNode = leftToRightStack.pop()
+                    curLevelArray.append(curNode!.val)
+                    if let left = curNode!.left { rightToLeftStack.push(left) }
+                    if let right = curNode!.right { rightToLeftStack.push(right) }
+                }
+                if !curLevelArray.isEmpty { res.append(curLevelArray) }
+                curLevelArray.removeAll()
+                while !rightToLeftStack.isEmpty {
+                    curNode = rightToLeftStack.pop()
+                    curLevelArray.append(curNode!.val)
+                    if let right = curNode!.right { leftToRightStack.push(right) }
+                    if let left = curNode!.left { leftToRightStack.push(left) }
+                }
+                if !curLevelArray.isEmpty { res.append(curLevelArray) }
+                curLevelArray.removeAll()
+            }
+        }
+
+        return res
     }
 }

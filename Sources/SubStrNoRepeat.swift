@@ -35,7 +35,8 @@ extension SubStrNoRepeatFunc {
         return res
     }
 
-    // company: FULSnap, hard
+    // company: FULSnap, hard, this version with String is much slower than NSString version
+    // hard
     func minWindowSubStr_76(_ source: String, _ target: String) -> String {
         var res = ""
         if source.isEmpty || target.count > source.count { return res }
@@ -117,6 +118,7 @@ extension SubStrNoRepeatFunc {
         return  res
     }
 
+    // GF, hard
     func longestConsecSequence_128(_ nums: [Int]) -> Int {
         var res = Int.min
         var charPosMap = [Int: Int]()
