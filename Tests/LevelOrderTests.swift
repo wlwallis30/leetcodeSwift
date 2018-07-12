@@ -21,4 +21,24 @@ class LevelOrderTests: LCBaseTest {
     func testZigZagLevelOrder_103() {
         XCTAssertEqual(1, 1)
     }
+
+    func testLevelOrder_107() {
+        XCTAssertEqual(1, 1)
+    }
+
+    func testMinDepth_111() {
+        XCTAssertEqual(1, 1)
+    }
+
+    func testMaxDepth_104() {
+        XCTAssertEqual(1, 1)
+    }
+
+    func testIsBalanced_110() {
+       XCTAssertEqual(1, 1)
+    }
+
+    func testVerticalOrder_314() {
+        XCTAssertEqual(1, 1)
+    }
 }

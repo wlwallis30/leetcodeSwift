@@ -17,7 +17,8 @@ extension SubStrNoRepeatFunc {
         var res = 0
         let str = NSString(string: str)
         let asciiStart = unichar(0)
-        // previous new story position map for each char, new story position means, for this char, next left side of window
+        // previous new story position map for each char
+        // new story position means, for this char, next left side of window
         var preNewStoryMap = Array(repeating: 0, count: 256)
         var globalNewStory = 0
         for idx in 0..<str.length {
@@ -127,7 +128,6 @@ extension SubStrNoRepeatFunc {
         }
 
         for num in nums {
-            var curNum = num
             var curCount = 1
             charPosMap.removeValue(forKey: num)
 

@@ -33,7 +33,7 @@ class SubStrNoRepeatTests: LCBaseTest {
         XCTAssertEqual(res, expected)
     }
 
-    func testLongestConsecSeq() {
+    func testLongestConsecSeq_128() {
         XCTAssertEqual(1, 1)
     }
 }
