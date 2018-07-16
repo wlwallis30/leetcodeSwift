@@ -38,3 +38,9 @@ extension String {
         return String(self[start..<end])
     }
 }
+
+extension Character {
+    var ascii: UInt32? {
+        return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+    }
+}
